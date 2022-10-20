@@ -1,0 +1,39 @@
+.section {
+  font-family: 'Open Sans',sans-serif;
+  position: relative;
+  text-align: center;
+  color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  div {
+    text-align: center;
+    color: #ffffff;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h1 {
+      text-align: center;
+      align-self: flex-start;
+      font-size: 6rem;
+      margin: 15px auto;
+    }
+    a {
+      text-decoration: none;
+      padding: 10px 30px;
+      align-self: flex-start;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin: 0px auto;
+      color: #ffffff !important;
+      background-color: #2cccc4 !important;
+      border-radius: 5px;
+      &:hover{
+        filter: brightness(0.7);
+      }
+    }
+  }
+}
