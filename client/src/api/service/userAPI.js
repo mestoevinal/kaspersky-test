@@ -6,7 +6,7 @@ export const createUser = async (User) => {
 }
 
 export const fetchUsers = async (limit, page, search = "", sortBy="") => {
-    const {data} = await $host.get(`api/user/all?limit=${limit}&page=${page}&search=${search}&sortBy=${sortBy}`)
+    const {data} = await $host.get(`api/user/all?limit_m=${limit}&page_m=${page}&search=${search}&sortBy=${sortBy}`)
     return data.message
 }
 

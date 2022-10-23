@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import userCss from "./UserList.module.scss"
-import {deleteUser, fetchUsers} from "../../api/service/userAPI";
-import {getTotalPages} from "./CountTotalPages";
+import {fetchUsers} from "../../api/service/userAPI";
 import {NavLink} from "react-router-dom";
+import {getTotalPages} from "./CountTotalPages";
 
 const UserList = () => {
     const [sortFirstName, setSortFirstName] = useState(false)
@@ -10,15 +10,16 @@ const UserList = () => {
     const [sortBy, setSortBy] = useState("")
     const [users, setUsers] = useState([])
     const [page, setPage] = useState(1)
-    const [count, setCount] = useState(0)
+    const [totalPages, setTotalPages] = useState(0)
     const [search, setSearch] = useState("")
-    const limit = 11
-    let totalPages = getTotalPages(count, limit)
+    const limit = 10
+    let arrPages = getTotalPages(totalPages)
 
     useEffect(() => {
         fetchUsers(limit, page, search, sortBy).then(data => {
+            console.log(data)
             setUsers(data.users)
-            setCount(data.count)
+            setTotalPages(data.countPages)
         })
     }, [page, sortBy, sortLastName, sortFirstName, search])
 
@@ -93,7 +94,7 @@ const UserList = () => {
             </table>
 
 
-            {totalPages?.map(p =>
+            {arrPages?.map(p =>
                 <NavLink
                     to=""
                     key={p}
